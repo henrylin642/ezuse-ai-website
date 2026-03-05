@@ -8,7 +8,7 @@ const footerLinks = [
   {
     title: "產品服務",
     links: [
-      { label: "AR 情境編輯器", href: "#products" },
+      { label: "AR 行銷編輯器", href: "#products" },
       { label: "信義區燈柱資源", href: "#products" },
       { label: "展會 AR 遊戲", href: "#products" },
       { label: "AI 客服方案", href: "#products" },

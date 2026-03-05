@@ -9,7 +9,7 @@ import { ArrowUpRight } from "lucide-react";
 
 const products = [
   {
-    title: "AR 情境編輯器",
+    title: "AR 行銷編輯器",
     subtitle: "拖拉式流程，即時預覽",
     desc: "直覺的拖拉式介面，讓您輕鬆客製 AR 任務與互動流程。無需寫程式，即時預覽效果，從構想到上線一氣呵成。",
     image: ASSETS.iconArEditor,

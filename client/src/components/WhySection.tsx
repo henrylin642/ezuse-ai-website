@@ -29,7 +29,7 @@ const features = [
   {
     icon: Rocket,
     title: "快速部署",
-    desc: "以 AR 情境編輯器 + 模組化流程，行銷與活動公司可快速上線。從構想到執行，最快一週內完成部署。",
+    desc: "以 AR 行銷編輯器 + 模組化流程，行銷與活動公司可快速上線。從構想到執行，最快一週內完成部署。",
     bgColor: "bg-brand-blue/8",
     iconBg: "bg-brand-blue/15",
     borderColor: "border-brand-blue/15",
