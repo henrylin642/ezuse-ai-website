@@ -1,6 +1,7 @@
 /**
  * Home Page - Ezuse AI Official Website
- * Design: Playful Bauhaus — warm orange + teal, geometric accents
+ * CIS Design System: Brand Orange #FF8A3D + Deep Charcoal #1C1C1C + Warm Beige #FFF4E6
+ * Typography: Source Sans 3 + Noto Sans TC
  * Sections: Hero, Why, Products, Cases, Otter, Contact, Footer
  */
 import Navbar from "@/components/Navbar";

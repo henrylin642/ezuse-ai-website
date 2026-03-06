@@ -1,166 +1,214 @@
 /**
- * Hero Section
- * Playful Bauhaus: diagonal cut, geometric dots, warm orange gradient
- * Light background with dark text for readability
+ * Hero Section - CIS Design System
+ * Deep blue tech background with luminous waves
+ * Low-Poly geometric otter mascot - centered composition
+ * White + orange text, centered layout matching CIS reference
+ * Colors: #FF8A3D orange, deep blue bg, white text
  */
 import { motion } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
 import { ASSETS } from "@/lib/assets";
+import { ArrowRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[100vh] overflow-hidden bg-gradient-to-br from-brand-cream via-white to-brand-orange-light/20">
-      {/* Geometric decorations */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-20 left-[10%] w-4 h-4 rounded-full bg-brand-orange/20 animate-pulse" />
-        <div className="absolute top-40 right-[15%] w-6 h-6 rounded-full bg-brand-teal/15 animate-pulse delay-300" />
-        <div className="absolute bottom-40 left-[20%] w-3 h-3 rounded-full bg-brand-blue/20 animate-pulse delay-700" />
-        <div className="absolute top-[30%] left-[5%] w-20 h-20 border-2 border-brand-orange/10 rounded-2xl rotate-12" />
-        <div className="absolute bottom-[20%] right-[8%] w-16 h-16 border-2 border-brand-teal/10 rounded-full" />
-        <div className="absolute top-[60%] right-[25%] w-8 h-8 bg-brand-orange/5 rounded-lg rotate-45" />
-        {/* Large blurred accent circles */}
-        <div className="absolute -top-32 -right-32 w-96 h-96 bg-brand-orange/8 rounded-full blur-3xl" />
-        <div className="absolute -bottom-48 -left-48 w-[500px] h-[500px] bg-brand-teal/6 rounded-full blur-3xl" />
+    <section
+      id="hero"
+      className="relative min-h-[100vh] flex flex-col items-center justify-center overflow-hidden"
+    >
+      {/* Deep blue background image */}
+      <div className="absolute inset-0">
+        <img
+          src={ASSETS.heroBg}
+          alt=""
+          className="w-full h-full object-cover"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/30 via-transparent to-[#0a1628]/50" />
       </div>
 
-      <div className="container relative z-10 pt-28 md:pt-36 pb-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          {/* Left: Text content */}
+      {/* Floating particles decoration */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => (
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            key={i}
+            className="absolute w-1 h-1 bg-white/30 rounded-full"
+            style={{
+              left: `${5 + (i * 4.7) % 90}%`,
+              top: `${8 + (i * 7.3) % 80}%`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              opacity: [0.2, 0.6, 0.2],
+            }}
+            transition={{
+              duration: 3 + (i % 4),
+              repeat: Infinity,
+              delay: i * 0.3,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Content - Centered layout matching CIS reference */}
+      <div className="container relative z-10 text-center pt-20 pb-8">
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8"
+        >
+          <div className="w-2 h-2 bg-[#FF8A3D] rounded-full animate-pulse" />
+          <span className="text-white/80 text-sm font-medium">AI + AR + Gamification</span>
+        </motion.div>
+
+        {/* Title - Centered, matching CIS reference exactly */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-6"
+        >
+          <span className="text-white">Let </span>
+          <span className="text-[#FF8A3D]">AI</span>
+          <span className="text-white"> &amp; </span>
+          <span className="text-[#FF8A3D]">Gamification</span>
+          <br />
+          <span className="text-white">Be Your </span>
+          <span className="text-[#FF8A3D]">Superpower</span>
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="text-lg sm:text-xl text-white/70 mb-2 max-w-2xl mx-auto"
+        >
+          讓 AI 與遊戲化成為店家的超能力
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="text-base text-white/50 mb-8 max-w-xl mx-auto"
+        >
+          用親和力十足的 AR／Agent 工具，幫中小店家把每件事變得簡單又好玩。
+        </motion.p>
+      </div>
+
+      {/* Otter - Centered, larger, matching CIS reference */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.85 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+        className="relative z-10 w-full flex justify-center"
+      >
+        <motion.div
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="relative"
+        >
+          {/* Glow effect behind otter */}
+          <div className="absolute inset-0 bg-[#FF8A3D]/15 blur-3xl rounded-full scale-75" />
+          <img
+            src={ASSETS.otterHero}
+            alt="Ezuse AI 海獺吉祥物"
+            className="relative w-64 sm:w-80 md:w-96 lg:w-[28rem] h-auto drop-shadow-2xl"
+            loading="eager"
+          />
+
+          {/* Floating stat card - left */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="max-w-xl"
+            transition={{ delay: 1, duration: 0.5 }}
+            className="absolute bottom-4 -left-8 sm:-left-16 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-3"
           >
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-sm font-medium mb-6"
-            >
-              <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
-              AI + 遊戲化解決方案
-            </motion.div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-brand-dark mb-6">
-              讓 AI 與遊戲化
-              <br />
-              成為店家的
-              <span className="relative inline-block">
-                <span className="relative z-10 text-brand-orange">超能力</span>
-                <svg className="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 12" fill="none">
-                  <path d="M2 8 C50 2, 150 2, 198 8" stroke="#FF8A3D" strokeWidth="3" strokeLinecap="round" opacity="0.4" />
-                </svg>
-              </span>
-            </h1>
-
-            <p className="text-lg text-brand-dark/60 leading-relaxed mb-8 max-w-md">
-              用親和力十足的 AR／Agent 工具，幫中小店家把每件事變得簡單又好玩。
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="#contact"
-                className="group inline-flex items-center gap-2 px-7 py-3.5 bg-brand-orange text-white font-semibold rounded-xl shadow-lg shadow-brand-orange/25 hover:shadow-xl hover:shadow-brand-orange/30 hover:-translate-y-0.5 transition-all"
-              >
-                立即體驗
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
-                href="#contact"
-                className="group inline-flex items-center gap-2 px-7 py-3.5 bg-white text-brand-dark font-semibold rounded-xl border-2 border-brand-dark/10 hover:border-brand-orange/30 hover:bg-brand-orange/5 transition-all"
-              >
-                <Play size={16} className="text-brand-orange" />
-                取得 Demo
-              </a>
-            </div>
-
-            {/* Trust badges */}
-            <div className="mt-10 flex items-center gap-6 text-sm text-brand-dark/40">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-brand-teal/10 flex items-center justify-center">
-                  <span className="text-brand-teal text-xs font-bold">AR</span>
-                </div>
-                <span>WebAR 技術</span>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-[#FF8A3D]/10 flex items-center justify-center">
+                <span className="text-[#FF8A3D] font-bold text-sm">7K+</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-brand-orange/10 flex items-center justify-center">
-                  <span className="text-brand-orange text-xs font-bold">AI</span>
-                </div>
-                <span>Agent 客製化</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-brand-blue/10 flex items-center justify-center">
-                  <span className="text-brand-blue text-xs font-bold">XR</span>
-                </div>
-                <span>遊戲化體驗</span>
+              <div>
+                <div className="text-xs text-[#1C1C1C]/50">體驗人次</div>
+                <div className="text-sm font-semibold text-[#1C1C1C]">XR 樂園</div>
               </div>
             </div>
           </motion.div>
 
-          {/* Right: Hero Image */}
+          {/* Floating stat card - right */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="relative flex justify-center lg:justify-end"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 1.2, duration: 0.5 }}
+            className="absolute top-4 -right-8 sm:-right-16 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-3"
           >
-            <div className="relative">
-              {/* Background shape */}
-              <div className="absolute inset-0 -m-6 bg-gradient-to-br from-brand-orange/10 to-brand-teal/10 rounded-[2rem] rotate-3" />
-              <img
-                src={ASSETS.otterHero}
-                alt="Ezuse AI 海獺吉祥物"
-                className="relative z-10 w-full max-w-lg rounded-2xl"
-                loading="eager"
-              />
-              {/* Floating stat card */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1, duration: 0.5 }}
-                className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-3 border border-brand-orange/10"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-brand-teal/10 flex items-center justify-center">
-                    <span className="text-brand-teal font-bold text-sm">7K+</span>
-                  </div>
-                  <div>
-                    <div className="text-xs text-brand-dark/50">體驗人次</div>
-                    <div className="text-sm font-semibold text-brand-dark">XR 樂園</div>
-                  </div>
-                </div>
-              </motion.div>
-              {/* Floating revenue card */}
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2, duration: 0.5 }}
-                className="absolute -top-2 -right-2 bg-white rounded-xl shadow-lg p-3 border border-brand-teal/10"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center">
-                    <span className="text-brand-orange font-bold text-sm">3.6M</span>
-                  </div>
-                  <div>
-                    <div className="text-xs text-brand-dark/50">營收案例</div>
-                    <div className="text-sm font-semibold text-brand-dark">光 XR 樂園</div>
-                  </div>
-                </div>
-              </motion.div>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-[#FF8A3D]/10 flex items-center justify-center">
+                <span className="text-[#FF8A3D] font-bold text-sm">3.6M</span>
+              </div>
+              <div>
+                <div className="text-xs text-[#1C1C1C]/50">營收案例</div>
+                <div className="text-sm font-semibold text-[#1C1C1C]">光 XR 樂園</div>
+              </div>
             </div>
           </motion.div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      {/* Bottom wave divider */}
+      {/* CTA Buttons - Centered below otter */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.5 }}
+        className="relative z-10 flex flex-col sm:flex-row gap-4 justify-center mt-8 mb-12 px-4"
+      >
+        <motion.a
+          href="#contact"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-[#1C1C1C] font-bold rounded-xl shadow-lg hover:shadow-xl transition-all text-base"
+        >
+          立即體驗
+          <ArrowRight className="w-5 h-5" />
+        </motion.a>
+        <motion.a
+          href="#products"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#FF8A3D] text-white font-bold rounded-xl shadow-lg shadow-[#FF8A3D]/30 hover:bg-[#e67a30] transition-all text-base"
+        >
+          取得 Demo
+        </motion.a>
+      </motion.div>
+
+      {/* Trust badges */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8 }}
+        className="relative z-10 flex items-center gap-6 justify-center mb-8 px-4"
+      >
+        {[
+          { label: "WebAR", tag: "AR" },
+          { label: "Agent 客製化", tag: "AI" },
+          { label: "遊戲化體驗", tag: "XR" },
+        ].map((item) => (
+          <div key={item.tag} className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
+              <span className="text-[#FF8A3D] text-xs font-bold">{item.tag}</span>
+            </div>
+            <span className="text-white/50 text-sm">{item.label}</span>
+          </div>
+        ))}
+      </motion.div>
+
+      {/* Bottom wave divider to beige */}
       <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 80" fill="none" className="w-full">
+        <svg viewBox="0 0 1440 120" fill="none" className="w-full">
           <path
-            d="M0 40 C360 80 720 0 1080 40 C1260 60 1380 50 1440 40 L1440 80 L0 80 Z"
-            fill="white"
+            d="M0,80 C360,120 720,40 1080,80 C1260,100 1380,60 1440,80 L1440,120 L0,120 Z"
+            fill="#FFF4E6"
           />
         </svg>
       </div>

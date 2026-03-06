@@ -40,53 +40,52 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  /* Ezuse AI Brand Colors */
-  --color-brand-orange: oklch(0.75 0.18 55);
-  --color-brand-orange-light: oklch(0.85 0.12 55);
-  --color-brand-orange-dark: oklch(0.65 0.2 55);
-  --color-brand-teal: oklch(0.78 0.15 165);
-  --color-brand-teal-light: oklch(0.88 0.1 165);
-  --color-brand-blue: oklch(0.72 0.14 230);
-  --color-brand-dark: oklch(0.25 0.02 270);
-  --color-brand-cream: oklch(0.97 0.01 80);
-  --font-family-heading: "Outfit", "Noto Sans TC", sans-serif;
-  --font-family-body: "DM Sans", "Noto Sans TC", sans-serif;
+  /* CIS Brand Colors */
+  --color-brand-orange: oklch(0.74 0.16 52);
+  --color-brand-orange-light: oklch(0.82 0.1 52);
+  --color-brand-charcoal: oklch(0.2 0.005 0);
+  --color-brand-beige: oklch(0.97 0.015 80);
+  --color-brand-brown: oklch(0.5 0.1 55);
+  --color-brand-blue-deep: oklch(0.35 0.12 250);
+  --color-brand-blue-mid: oklch(0.55 0.18 250);
+  --font-family-heading: "Source Sans 3", "Noto Sans TC", sans-serif;
+  --font-family-body: "Source Sans 3", "Noto Sans TC", sans-serif;
 }
 
 :root {
-  --primary: oklch(0.75 0.18 55);
+  --primary: oklch(0.74 0.16 52);
   --primary-foreground: oklch(1 0 0);
-  --sidebar-primary: oklch(0.7 0.18 55);
+  --sidebar-primary: oklch(0.7 0.16 52);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --chart-1: oklch(0.75 0.18 55);
-  --chart-2: oklch(0.78 0.15 165);
-  --chart-3: oklch(0.72 0.14 230);
-  --chart-4: oklch(0.65 0.2 55);
-  --chart-5: oklch(0.25 0.02 270);
-  --radius: 0.75rem;
-  --background: oklch(0.99 0.005 80);
-  --foreground: oklch(0.2 0.02 270);
+  --chart-1: oklch(0.74 0.16 52);
+  --chart-2: oklch(0.5 0.1 55);
+  --chart-3: oklch(0.35 0.12 250);
+  --chart-4: oklch(0.55 0.18 250);
+  --chart-5: oklch(0.2 0.005 0);
+  --radius: 0.625rem;
+  --background: oklch(0.97 0.015 80);
+  --foreground: oklch(0.2 0.005 0);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.02 270);
+  --card-foreground: oklch(0.2 0.005 0);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.02 270);
-  --secondary: oklch(0.96 0.01 80);
-  --secondary-foreground: oklch(0.35 0.02 270);
-  --muted: oklch(0.95 0.008 80);
-  --muted-foreground: oklch(0.5 0.02 270);
-  --accent: oklch(0.95 0.015 55);
-  --accent-foreground: oklch(0.2 0.02 270);
+  --popover-foreground: oklch(0.2 0.005 0);
+  --secondary: oklch(0.95 0.01 80);
+  --secondary-foreground: oklch(0.3 0.005 0);
+  --muted: oklch(0.94 0.008 80);
+  --muted-foreground: oklch(0.5 0.01 0);
+  --accent: oklch(0.93 0.02 52);
+  --accent-foreground: oklch(0.2 0.005 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.01 80);
-  --input: oklch(0.92 0.01 80);
-  --ring: oklch(0.75 0.18 55);
+  --border: oklch(0.91 0.01 80);
+  --input: oklch(0.91 0.01 80);
+  --ring: oklch(0.74 0.16 52);
   --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.2 0.02 270);
-  --sidebar-accent: oklch(0.95 0.015 55);
-  --sidebar-accent-foreground: oklch(0.2 0.02 270);
-  --sidebar-border: oklch(0.92 0.01 80);
-  --sidebar-ring: oklch(0.75 0.18 55);
+  --sidebar-foreground: oklch(0.2 0.005 0);
+  --sidebar-accent: oklch(0.93 0.02 52);
+  --sidebar-accent-foreground: oklch(0.2 0.005 0);
+  --sidebar-border: oklch(0.91 0.01 80);
+  --sidebar-ring: oklch(0.74 0.16 52);
 }
 
 @layer base {
@@ -95,10 +94,11 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: "DM Sans", "Noto Sans TC", sans-serif;
+    font-family: "Source Sans 3", "Noto Sans TC", sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Outfit", "Noto Sans TC", sans-serif;
+    font-family: "Source Sans 3", "Noto Sans TC", sans-serif;
+    font-weight: 700;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -153,12 +153,12 @@ html {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: oklch(0.95 0.008 80);
+  background: #FFF4E6;
 }
 ::-webkit-scrollbar-thumb {
-  background: oklch(0.75 0.18 55 / 0.4);
+  background: rgba(255, 138, 61, 0.35);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: oklch(0.75 0.18 55 / 0.6);
+  background: rgba(255, 138, 61, 0.55);
 }

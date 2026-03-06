@@ -1,45 +1,52 @@
 /**
- * Products & Services Section
- * Playful Bauhaus: alternating layout, product cards with illustrations
+ * Products & Services Section - CIS Design System
+ * Background: White
+ * Alternating left-right layout with orange icon squares
+ * Colors: #FF8A3D orange, #1C1C1C charcoal, #FFF4E6 beige
  */
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ASSETS } from "@/lib/assets";
-import { ArrowUpRight } from "lucide-react";
+import { Layers, MapPin, Users, Camera, Headphones, ArrowUpRight } from "lucide-react";
 
 const products = [
   {
+    icon: Layers,
     title: "AR 行銷編輯器",
-    subtitle: "拖拉式流程，即時預覽",
-    desc: "直覺的拖拉式介面，讓您輕鬆客製 AR 任務與互動流程。無需寫程式，即時預覽效果，從構想到上線一氣呵成。",
+    subtitle: "拖拉式流程，快速上線",
+    desc: "拖拉式流程、客製 AR 任務、即時預覽。無需程式背景，行銷人員也能輕鬆建立 AR 互動體驗，從構想到上線最快一週完成。",
     image: ASSETS.iconArEditor,
     tags: ["拖拉式流程", "客製 AR 任務", "即時預覽"],
   },
   {
+    icon: MapPin,
     title: "信義區燈柱資源",
     subtitle: "實體 + AR 廣告一組到位",
-    desc: "結合信義區實體燈柱廣告與 AR 數位內容，打造線上線下整合的廣告體驗。一次投放，雙重曝光。",
+    desc: "結合實體燈柱廣告與 AR 數位內容，打造信義區獨家的 O2O 廣告樞紐。路過的消費者掃描即可進入 AR 互動世界。",
     image: ASSETS.iconXinyi,
     tags: ["實體廣告", "AR 數位內容", "O2O 整合"],
   },
   {
+    icon: Users,
     title: "展會 AR 遊戲",
-    subtitle: "為展覽／活動設計互動任務",
-    desc: "專為展覽與活動設計的雙人或多人 AR 互動任務，提升參展者的參與度與停留時間，讓展會體驗更加難忘。",
+    subtitle: "雙人或多人互動任務",
+    desc: "為展覽、活動設計雙人或多人 AR 任務遊戲。提升展場互動率與停留時間，讓參觀者成為品牌的主動傳播者。",
     image: ASSETS.iconExhibition,
     tags: ["多人互動", "展覽活動", "任務挑戰"],
   },
   {
+    icon: Camera,
     title: "卡路里掃描遊戲",
-    subtitle: "拍攝食物 → 計算熱量 → 趣味挑戰",
-    desc: "拍攝食物即可計算熱量，搭配蟑螂卡爪挑戰等趣味遊戲機制，用好玩的方式傳遞健康飲食概念。",
+    subtitle: "拍攝食物，健康互動",
+    desc: "拍攝食物即時計算熱量，搭配蟑螂卡爪挑戰等趣味關卡，在遊戲中傳遞健康飲食概念。適合餐飲業與健康品牌。",
     image: ASSETS.iconCalorie,
     tags: ["食物辨識", "熱量計算", "健康遊戲化"],
   },
   {
+    icon: Headphones,
     title: "AI 客服解決方案",
     subtitle: "WebAR + RAG + STT/TTS",
-    desc: "結合 WebAR 介面、RAG 知識檢索與語音互動技術，打造智慧客服系統。已在動物園等場域完成 PoC 驗證。",
+    desc: "整合 WebAR 介面與 RAG 知識庫、語音辨識與合成技術，打造 24 小時不間斷的智慧客服。已在動物園等案場完成 PoC 驗證。",
     image: ASSETS.iconAiService,
     tags: ["WebAR", "RAG 知識庫", "語音互動"],
   },
@@ -47,50 +54,46 @@ const products = [
 
 function ProductCard({ product, index }: { product: typeof products[0]; index: number }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
   const isEven = index % 2 === 0;
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: 0.1 }}
-      className={`grid md:grid-cols-2 gap-8 lg:gap-12 items-center ${
-        !isEven ? "md:[direction:rtl]" : ""
-      }`}
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: 0.1 }}
+      className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"} items-center gap-8 p-6 md:p-8 rounded-2xl bg-[#FFF4E6]/50 border border-[#FF8A3D]/5 hover:border-[#FF8A3D]/15 hover:shadow-lg transition-all group`}
     >
       {/* Image */}
-      <div className={`${!isEven ? "md:[direction:ltr]" : ""}`}>
-        <div className="relative group">
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/10 to-brand-teal/10 rounded-2xl rotate-2 group-hover:rotate-3 transition-transform" />
-          <div className="relative bg-white rounded-2xl p-6 shadow-sm border border-brand-orange/5 overflow-hidden">
-            <img
-              src={product.image}
-              alt={product.title}
-              className="w-full h-64 object-contain rounded-xl"
-              loading="lazy"
-            />
-          </div>
+      <div className="w-full md:w-2/5 flex justify-center">
+        <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden bg-white shadow-sm group-hover:shadow-md transition-shadow">
+          <img
+            src={product.image}
+            alt={product.title}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
         </div>
       </div>
 
       {/* Content */}
-      <div className={`${!isEven ? "md:[direction:ltr]" : ""}`}>
-        <span className="inline-block px-3 py-1 rounded-full bg-brand-orange/8 text-brand-orange text-xs font-medium mb-3">
-          {product.subtitle}
-        </span>
-        <h3 className="text-2xl lg:text-3xl font-bold text-brand-dark mb-4">
-          {product.title}
-        </h3>
-        <p className="text-brand-dark/55 leading-relaxed mb-6">
-          {product.desc}
-        </p>
-        <div className="flex flex-wrap gap-2 mb-6">
+      <div className="w-full md:w-3/5">
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-10 h-10 rounded-lg bg-[#FF8A3D] flex items-center justify-center shadow-sm">
+            <product.icon className="w-5 h-5 text-white" />
+          </div>
+          <div>
+            <h3 className="text-xl font-bold text-[#1C1C1C]">{product.title}</h3>
+            <p className="text-sm text-[#FF8A3D] font-medium">{product.subtitle}</p>
+          </div>
+        </div>
+        <p className="text-[#1C1C1C]/60 leading-relaxed mb-4">{product.desc}</p>
+        <div className="flex flex-wrap gap-2 mb-4">
           {product.tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1.5 bg-brand-cream rounded-lg text-xs font-medium text-brand-dark/60"
+              className="px-3 py-1 bg-[#FFF4E6] rounded-lg text-xs font-medium text-[#1C1C1C]/60"
             >
               {tag}
             </span>
@@ -98,7 +101,7 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
         </div>
         <a
           href="#contact"
-          className="inline-flex items-center gap-1.5 text-brand-orange font-semibold text-sm hover:gap-3 transition-all"
+          className="inline-flex items-center gap-1.5 text-[#FF8A3D] font-semibold text-sm hover:gap-3 transition-all"
         >
           了解更多 <ArrowUpRight size={16} />
         </a>
@@ -112,33 +115,29 @@ export default function ProductsSection() {
   const headerInView = useInView(headerRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="products" className="py-24 md:py-32 bg-brand-cream/50 relative">
-      {/* Decorations */}
-      <div className="absolute top-20 left-[8%] w-6 h-6 border-2 border-brand-teal/10 rounded-full" />
-      <div className="absolute bottom-32 right-[12%] w-10 h-10 border-2 border-brand-orange/8 rounded-lg rotate-45" />
+    <section id="products" className="py-24 bg-white relative">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF8A3D]/20 to-transparent" />
 
       <div className="container">
-        {/* Section header */}
         <motion.div
           ref={headerRef}
           initial={{ opacity: 0, y: 30 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-medium mb-4">
-            產品與服務
+          <span className="inline-block px-4 py-1.5 bg-[#FF8A3D]/10 text-[#FF8A3D] text-sm font-semibold rounded-full mb-4">
+            PRODUCTS & SERVICES
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-dark mb-4">
-            全方位的 <span className="text-brand-teal">AR + AI</span> 工具
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#1C1C1C] mb-4">
+            產品<span className="text-[#FF8A3D]">＆</span>服務
           </h2>
-          <p className="text-brand-dark/50 text-lg max-w-2xl mx-auto">
-            從 AR 情境編輯到 AI 客服，我們提供完整的數位轉型解決方案
+          <p className="text-[#1C1C1C]/60 max-w-2xl mx-auto text-lg">
+            從 AR 編輯器到 AI 客服，一站式滿足行銷與活動的所有需求
           </p>
         </motion.div>
 
-        {/* Product cards */}
-        <div className="space-y-20 lg:space-y-28">
+        <div className="space-y-8">
           {products.map((product, i) => (
             <ProductCard key={product.title} product={product} index={i} />
           ))}
