@@ -9,7 +9,7 @@ import { useRef, useState, useEffect } from "react";
 import { TrendingUp, Users, Award, MapPin } from "lucide-react";
 
 const stats = [
-  { value: 3.6, suffix: "M", label: "營收案例", prefix: "NT$", decimals: 1, icon: TrendingUp },
+  { value: 7.0, suffix: "M+", label: "營收案例", prefix: "NT$", decimals: 1, icon: TrendingUp },
   { value: 7000, suffix: "+", label: "體驗人次", prefix: "", decimals: 0, icon: Users },
   { value: 15, suffix: "+", label: "合作夥伴", prefix: "", decimals: 0, icon: Award },
   { value: 50, suffix: "+", label: "AR 場景", prefix: "", decimals: 0, icon: MapPin },
@@ -28,8 +28,8 @@ const cases = [
   },
   {
     title: "光 XR 實境樂園",
-    desc: "打造沉浸式 XR 實境樂園體驗，累計超過 7,000+ 體驗分數，創造 3.6M 營收佳績。結合 AR、VR 與遊戲化機制，成為業界標竿案例。",
-    tags: ["XR 樂園", "7000+ 體驗", "3.6M 營收"],
+    desc: "打造沉浸式 XR 實境樂園體驗，累計超過 7,000+ 體驗分數，創造超過 7.0M 營收佳績。結合 AR、VR 與遊戲化機制，成為業界標竿案例。",
+    tags: ["XR 樂園", "7000+ 體驗", ">7.0M 營收"],
   },
   {
     title: "中小零售店 AI 客服導入",

@@ -145,7 +145,7 @@ export default function HeroSection() {
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-[#FF8A3D]/10 flex items-center justify-center">
-                <span className="text-[#FF8A3D] font-bold text-sm">3.6M</span>
+                <span className="text-[#FF8A3D] font-bold text-sm">&gt;7.0M</span>
               </div>
               <div>
                 <div className="text-xs text-[#1C1C1C]/50">營收案例</div>
