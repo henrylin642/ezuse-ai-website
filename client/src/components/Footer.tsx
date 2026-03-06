@@ -50,14 +50,7 @@ export default function Footer() {
             <p className="text-white/35 text-sm leading-relaxed max-w-sm mb-6">
               讓 AI 與遊戲化成為店家的超能力。用親和力十足的 AR／Agent 工具，幫中小店家把每件事變得簡單又好玩。
             </p>
-            <div className="flex items-center gap-3">
-              <img
-                src={ASSETS.logoLightGen}
-                alt="光時代股份有限公司"
-                className="h-8 opacity-50 hover:opacity-80 transition-opacity"
-              />
-              <span className="text-white/25 text-xs">光時代股份有限公司</span>
-            </div>
+
           </div>
 
           {/* Links */}
