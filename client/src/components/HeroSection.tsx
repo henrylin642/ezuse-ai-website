@@ -19,7 +19,7 @@ export default function HeroSection() {
       <div className="absolute inset-0">
         <img
           src={ASSETS.heroBg}
-          alt=""
+          alt="Ezuse AI 深藍科技風背景與光波紋理"
           className="w-full h-full object-cover"
           loading="eager"
         />
